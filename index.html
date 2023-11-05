@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1>Live Demo</h1>
+    <script>
+      var load;
+      var store;
+      WebAssembly.instantiateStreaming(fetch("test.wasm"), {}).then((obj) => {
+      	load = obj.instance.exports.load;
+      	store = obj.instance.exports.store;
+      	console.log("wasm loaded!");
+      });
+    </script>
+  </body>
+</html>
